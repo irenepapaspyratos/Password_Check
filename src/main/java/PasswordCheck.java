@@ -18,12 +18,12 @@ public class PasswordCheck {
         if (!isGood(password))
             addition = addition.equals("") ? (addition + " es zu unsicher ist") : (addition + " und es zu unsicher ist");
 
-        if (addition != "") {
+        if (!addition.equals("")) {
             System.out.println(missingElements + addition + "! Try again!!");
         } else {
             System.out.println("Gutes Passwort!");
         }
-        ;
+
         System.out.println("Dein Passwort lautet rückwärts übrigens: " + reversePassword(password));
 
     }
