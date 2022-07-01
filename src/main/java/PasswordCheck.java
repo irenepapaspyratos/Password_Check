@@ -3,7 +3,20 @@ import java.util.Scanner;
 
 public class PasswordCheck {
     public static void main(String[] args) {
+        Scanner eingabeScanner = new Scanner(System.in);
+        System.out.println("Passwort eingeben:");
+        String password = eingabeScanner.nextLine();
 
+        String missingElements = "Dein Passwort ist ungültig, weil";
+        String addition = "";
+
+        if (!lengthCheck(password)) addition = " es zu kurz ist";
+        if (!containsNumberCheck(password)) addition = addition.equals("") ? (addition + " eine Ziffer fehlt") : (addition + " und eine Ziffer fehlt");
+        if (!containsCapitalCheck(password)) addition = addition.equals("") ? (addition + " entweder ein Klein- und/oder ein Großbuchstabe fehlt") : (addition + " und entweder ein Klein- und/oder ein Großbuchstabe fehlt");
+        if (!isGood(password)) addition = addition.equals("") ? (addition + " es zu unsicher ist") : (addition + " und es zu unsicher ist");
+
+
+        System.out.println(missingElements + addition + "! Try again!!");
     }
 
     public static boolean lengthCheck(String password) {
@@ -13,9 +26,7 @@ public class PasswordCheck {
     public static boolean containsNumberCheck(String password) {
         boolean check = false;
         for (int i = 0; i < 10; i++) {
-            if (password.contains("" + i)) {
-                check = true;
-            }
+            if (password.contains("" + i)) {check = true;}
             if (check) break;
         }
         return check;
@@ -46,6 +57,7 @@ public class PasswordCheck {
             if (password.toLowerCase().contains(badPasswordsList[i])) {
                 isGood = false;
             }
+            if (!isGood) break;
         }
         return isGood;
     }
