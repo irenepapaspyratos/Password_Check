@@ -115,4 +115,19 @@ public class PasswordCheckTest {
         // then
         Assertions.assertEquals(false, passCheck);
     }
+
+
+    @Test
+    void reversePasswordCheckPass() {
+
+        // given
+        String password = "12u4f6Ba";
+
+        // when
+        String passCheck = PasswordCheck.reversePassword(password);
+
+        // then
+        Assertions.assertEquals("aB6f4u21", passCheck);
+    }
+
 }

@@ -11,12 +11,21 @@ public class PasswordCheck {
         String addition = "";
 
         if (!lengthCheck(password)) addition = " es zu kurz ist";
-        if (!containsNumberCheck(password)) addition = addition.equals("") ? (addition + " eine Ziffer fehlt") : (addition + " und eine Ziffer fehlt");
-        if (!containsCapitalCheck(password)) addition = addition.equals("") ? (addition + " entweder ein Klein- und/oder ein Großbuchstabe fehlt") : (addition + " und entweder ein Klein- und/oder ein Großbuchstabe fehlt");
-        if (!isGood(password)) addition = addition.equals("") ? (addition + " es zu unsicher ist") : (addition + " und es zu unsicher ist");
+        if (!containsNumberCheck(password))
+            addition = addition.equals("") ? (addition + " eine Ziffer fehlt") : (addition + " und eine Ziffer fehlt");
+        if (!containsCapitalCheck(password))
+            addition = addition.equals("") ? (addition + " entweder ein Klein- und/oder ein Großbuchstabe fehlt") : (addition + " und entweder ein Klein- und/oder ein Großbuchstabe fehlt");
+        if (!isGood(password))
+            addition = addition.equals("") ? (addition + " es zu unsicher ist") : (addition + " und es zu unsicher ist");
 
+        if (addition != "") {
+            System.out.println(missingElements + addition + "! Try again!!");
+        } else {
+            System.out.println("Gutes Passwort!");
+        }
+        ;
+        System.out.println("Dein Passwort lautet rückwärts übrigens: " + reversePassword(password));
 
-        System.out.println(missingElements + addition + "! Try again!!");
     }
 
     public static boolean lengthCheck(String password) {
@@ -26,7 +35,9 @@ public class PasswordCheck {
     public static boolean containsNumberCheck(String password) {
         boolean check = false;
         for (int i = 0; i < 10; i++) {
-            if (password.contains("" + i)) {check = true;}
+            if (password.contains("" + i)) {
+                check = true;
+            }
             if (check) break;
         }
         return check;
@@ -62,5 +73,11 @@ public class PasswordCheck {
         return isGood;
     }
 
+    public static String reversePassword(String password) {
+        StringBuilder reversed = new StringBuilder(password);
+        reversed.reverse();
+
+        return reversed.toString();
+    }
 
 }
