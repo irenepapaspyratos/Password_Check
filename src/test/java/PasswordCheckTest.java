@@ -12,7 +12,7 @@ public class PasswordCheckTest {
         boolean passCheck = PasswordCheck.lengthCheck(password);
 
         // then
-        Assertions.assertEquals(false, passCheck);
+        Assertions.assertFalse(passCheck);
     }
 
     @Test
@@ -24,7 +24,7 @@ public class PasswordCheckTest {
         boolean passCheck = PasswordCheck.lengthCheck(password);
 
         // then
-        Assertions.assertEquals(true, passCheck);
+        Assertions.assertTrue(passCheck);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class PasswordCheckTest {
         boolean passCheck = PasswordCheck.containsNumberCheck(password);
 
         // then
-        Assertions.assertEquals(true, passCheck);
+        Assertions.assertTrue(passCheck);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class PasswordCheckTest {
         boolean passCheck = PasswordCheck.containsNumberCheck(password);
 
         // then
-        Assertions.assertEquals(false, passCheck);
+        Assertions.assertFalse(passCheck);
     }
 
     @Test
@@ -61,7 +61,7 @@ public class PasswordCheckTest {
         boolean passCheck = PasswordCheck.containsCapitalCheck(password);
 
         // then
-        Assertions.assertEquals(true, passCheck);
+        Assertions.assertTrue(passCheck);
 
     }
 
@@ -75,7 +75,7 @@ public class PasswordCheckTest {
         boolean passCheck = PasswordCheck.containsCapitalCheck(password);
 
         // then
-        Assertions.assertEquals(false, passCheck);
+        Assertions.assertFalse(passCheck);
 
     }
 
@@ -89,7 +89,7 @@ public class PasswordCheckTest {
         boolean passCheck = PasswordCheck.containsCapitalCheck(password);
 
         // then
-        Assertions.assertEquals(false, passCheck);
+        Assertions.assertFalse(passCheck);
     }
 
     @Test
@@ -101,7 +101,7 @@ public class PasswordCheckTest {
         boolean passCheck = PasswordCheck.isGood(password);
 
         // then
-        Assertions.assertEquals(true, passCheck);
+        Assertions.assertTrue(passCheck);
     }
 
     @Test
@@ -113,7 +113,7 @@ public class PasswordCheckTest {
         boolean passCheck = PasswordCheck.isGood(password);
 
         // then
-        Assertions.assertEquals(false, passCheck);
+        Assertions.assertFalse(passCheck);
     }
 
 

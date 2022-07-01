@@ -1,4 +1,3 @@
-import java.util.Locale;
 import java.util.Scanner;
 
 public class PasswordCheck {
@@ -10,13 +9,15 @@ public class PasswordCheck {
         String missingElements = "Dein Passwort ist ungültig, weil";
         String addition = "";
 
-        if (!lengthCheck(password)) addition = " es zu kurz ist";
+        if (!lengthCheck(password))
+            addition = " es zu kurz ist";
         if (!containsNumberCheck(password))
             addition = addition.equals("") ? (addition + " eine Ziffer fehlt") : (addition + " und eine Ziffer fehlt");
         if (!containsCapitalCheck(password))
             addition = addition.equals("") ? (addition + " entweder ein Klein- und/oder ein Großbuchstabe fehlt") : (addition + " und entweder ein Klein- und/oder ein Großbuchstabe fehlt");
         if (!isGood(password))
             addition = addition.equals("") ? (addition + " es zu unsicher ist") : (addition + " und es zu unsicher ist");
+
 
         if (!addition.equals("")) {
             System.out.println(missingElements + addition + "! Try again!!");
